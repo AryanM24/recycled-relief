@@ -72,14 +72,6 @@ export default function Footer() {
                   Get Involved
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary focus:text-primary transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
 

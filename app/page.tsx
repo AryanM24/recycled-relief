@@ -14,6 +14,7 @@ import FlipCard from "@/components/flip-card"
 import ImageComparisonSlider from "@/components/image-comparison-slider"
 import ScrollingNewsTicker from "@/components/scrolling-ticker"
 import LocationMap from "@/components/location-map"
+import ZoomableImage from "@/components/zoomable-image"
 
 export default function Home() {
   // Consolidated state using a single state object for form-related states
@@ -148,7 +149,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src="https://plus.unsplash.com/premium_photo-1713766195578-9babf5223b5d?q=80&w=2428&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Environmental efforts"
             fill
             className="object-cover"
@@ -267,58 +268,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Emotional Story: Robin Williams */}
-      <section className="py-20 bg-background" ref={robinWilliamsRef}>
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative overflow-hidden rounded-xl shadow-xl">
-              <div className="relative aspect-video">
-                <Image
-                  src="/placeholder.svg?height=720&width=1280"
-                  alt="Robin Williams"
-                  fill
-                  className="object-cover grayscale"
-                />
-                <div
-                  className={`absolute inset-0 color-fill-overlay`}
-                  style={{ clipPath: `polygon(0 0, ${colorFill.get()}% 0, ${colorFill.get()}% 100%, 0 100%)` }}
-                />
-                <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold text-white text-center"
-                  >
-                    He seemed happy... right?
-                  </motion.h2>
-                </div>
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="mt-8 text-center"
-            >
-              <p className="text-muted-foreground mb-4">
-                Robin Williams brought joy to millions, yet behind his smile was a battle with depression that many
-                never saw.
-              </p>
-              <p className="text-muted-foreground">
-                Mental health struggles often remain invisible, even in those who seem the happiest. This is why
-                breaking the stigma and providing support is so crucial.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mountain or Landfill? */}
+      {/* The Problems We're Facing - Combined Interactive Section */}
       <section className="py-16 bg-background">
         <div className="container px-4 md:px-6">
           <motion.div
@@ -326,71 +276,128 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center mb-8"
+            className="max-w-3xl mx-auto text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Mountain or Landfill?</h2>
-            <p className="text-muted-foreground">Drag the slider to reveal the truth.</p>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">The Reality Behind the Issues</h2>
+            <p className="text-muted-foreground">
+              Behind every statistic are real stories and hidden truths that need to be uncovered.
+            </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <ImageComparisonSlider
-              beforeImage="/placeholder.svg?height=600&width=800"
-              afterImage="/placeholder.svg?height=600&width=800"
-              beforeAlt="What appears to be a mountain"
-              afterAlt="Actually a landfill"
-            />
-
+          <div className="max-w-5xl mx-auto space-y-20">
+            {/* First Issue: Mental Health Visibility */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="mt-6 text-center"
-            >
-              <p className="text-muted-foreground font-medium">
-                If you guessed mountain... you are incorrect! By 2050, landfills could dominate our landscapes if we
-                don't act.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Rocky the Raccoon */}
-      <section className="py-16 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="w-full md:w-1/2"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
             >
-              <div className="relative aspect-square max-w-[300px] mx-auto">
+              <div className="relative overflow-hidden rounded-xl shadow-xl h-[400px]">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Rocky the Raccoon"
+                  src="https://lh4.googleusercontent.com/cZx6AGbQ5s83QEbTyTAE-Rz2-BD-YSYOuorwW_REfErYt-izRqqkQ4_y2qyPsmXF92yTEoZnT7y5O5CJAUB9QvdfJEgt07xrVUD5isMBXmA09pbB_jI0fFAcNHUZIxitwA=w1280"
+                  alt="Robin Williams smiling"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">He seemed happy... right?</h3>
+                  <p className="text-white/80 text-sm">Click to reveal the truth</p>
+                </div>
+                <motion.div 
+                  className="absolute inset-0 bg-black/80 flex items-center justify-center p-6"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="text-white max-w-md">
+                    <p className="mb-4">
+                      Robin Williams brought joy to millions, yet behind his smile was a battle with depression that many never saw.
+                    </p>
+                    <p className="font-medium">
+                      Mental health struggles often remain invisible, even in those who seem the happiest.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">The Invisible Struggle</h3>
+                <p className="text-muted-foreground">
+                  What we see on the surface rarely tells the whole story. Like Robin Williams, many people 
+                  hide their mental health struggles behind smiles and laughter.
+                </p>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Over 50% of those suffering from depression never seek professional help</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Stigma prevents many from acknowledging their mental health needs</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Simple tools can make a significant difference in daily coping</span>
+                  </li>
+                </ul>
+                <div className="pt-4">
+                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                    <Link href="/mental-health">Learn More About Mental Health</Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
 
+            {/* Second Issue: Environmental Impact */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="w-full md:w-1/2"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
             >
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Meet Rocky</h2>
-              <p className="text-muted-foreground mb-4">
-                Rocky the Raccoon represents the millions of animals affected by our waste problem.
-              </p>
-              <p className="text-muted-foreground font-medium">
-                Each year, over 1 million mammals lose their homes due to waste disposal sites.
-              </p>
+              <div className="order-2 md:order-1 space-y-4">
+                <h3 className="text-2xl font-bold text-foreground">What We Choose Not to See</h3>
+                <p className="text-muted-foreground">
+                  Our waste doesn't disappear—it accumulates in places we choose to ignore, with devastating consequences 
+                  for both wildlife and vulnerable communities.
+                </p>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Over 1 million mammals lose their homes annually due to landfill expansion</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>By 2050, there could be more plastic than fish in our oceans</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Recycling one ton of plastic saves the equivalent of 1,000–2,000 gallons of gasoline</span>
+                  </li>
+                </ul>
+                <div className="pt-4">
+                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                    <Link href="/environment">Learn About Environmental Impact</Link>
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="order-1 md:order-2">
+                <div className="max-w-md mx-auto">
+                  <div className="mb-6 relative">
+                    <ZoomableImage 
+                      image="https://lh6.googleusercontent.com/sjI0VQlx5CAcOdehk0imZFkYGYf5BVlFpYTLkDIY-QrguwcqGnWg4--fvajr1Pt7RYXJqJ5Xajzd_Yl_GwwJwx1ZxzwLbPyHg18C8M8vwpuJ8I9H1KT59EnKvvmgysMvqQ=w1280"
+                      alt="Landfill image that initially appears to be a mountain"
+                      initialZoom={3.5}
+                    />
+                    <p className="mt-2 text-sm text-center text-muted-foreground italic">
+                      Click on the image to zoom out and reveal the truth.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -421,7 +428,7 @@ export default function Home() {
             >
               <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
+                  src="https://lh5.googleusercontent.com/VAjcMqbYtLO7FODbTEAIj-EZj_AVCHGf4DZNeMM7VRcivCuz77pcuFZrJ8ffpHtkXd-uqY_hpwQs78Np1SWthxHS6AhrANe6ReKKy8yBCH6oJFsMF0L_ETEBJmzw2qfG=w1280"
                   alt="Fidget toy creation process"
                   fill
                   className="object-cover"
@@ -607,205 +614,65 @@ export default function Home() {
       {/* Contact & Social Media */}
       <section className="py-16 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center"
-            >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Connect With Us</h2>
-
-              <div className="flex flex-wrap gap-6 mb-8">
-                <motion.a
-                  href="#"
-                  whileHover={{ y: -5 }}
-                  className="bg-primary/10 hover:bg-primary/20 p-4 rounded-full"
-                >
-                  <Instagram className="h-8 w-8 text-primary" />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  whileHover={{ y: -5 }}
-                  className="bg-primary/10 hover:bg-primary/20 p-4 rounded-full"
-                >
-                  <Twitter className="h-8 w-8 text-primary" />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  whileHover={{ y: -5 }}
-                  className="bg-primary/10 hover:bg-primary/20 p-4 rounded-full"
-                >
-                  <Facebook className="h-8 w-8 text-primary" />
-                </motion.a>
-                <motion.a
-                  href="mailto:info@recycledrelief.org"
-                  whileHover={{ y: -5 }}
-                  className="bg-primary/10 hover:bg-primary/20 p-4 rounded-full"
-                >
-                  <Mail className="h-8 w-8 text-primary" />
-                </motion.a>
-              </div>
-
-              <p className="text-muted-foreground">
-                Follow us on social media to stay updated on our latest projects, events, and ways to get involved.
-                Together, we can make a difference in mental health awareness and environmental sustainability.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Problems We're Facing - Combined Interactive Section */}
-      <section className="py-16 bg-background">
-        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center mb-12"
+            className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">The Reality Behind the Issues</h2>
-            <p className="text-muted-foreground">
-              Behind every statistic are real stories and hidden truths that need to be uncovered.
-            </p>
+            <h2 className="text-3xl font-bold mb-6 text-foreground">Connect With Us</h2>
+
+            <div className="flex justify-center gap-6 mb-8">
+              <motion.a
+                href="#"
+                whileHover={{ y: -8, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                className="bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary/30 hover:to-primary/20 p-4 rounded-full shadow-md"
+              >
+                <Instagram className="h-8 w-8 text-primary" />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ y: -8, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, delay: 0.05 }}
+                className="bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary/30 hover:to-primary/20 p-4 rounded-full shadow-md"
+              >
+                <Twitter className="h-8 w-8 text-primary" />
+              </motion.a>
+              <motion.a
+                href="#"
+                whileHover={{ y: -8, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, delay: 0.1 }}
+                className="bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary/30 hover:to-primary/20 p-4 rounded-full shadow-md"
+              >
+                <Facebook className="h-8 w-8 text-primary" />
+              </motion.a>
+              <motion.a
+                href="mailto:info@recycledrelief.org"
+                whileHover={{ y: -8, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, delay: 0.15 }}
+                className="bg-gradient-to-br from-primary/20 to-primary/10 hover:from-primary/30 hover:to-primary/20 p-4 rounded-full shadow-md"
+              >
+                <Mail className="h-8 w-8 text-primary" />
+              </motion.a>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-muted-foreground max-w-xl mx-auto"
+            >
+              Follow us on social media to stay updated on our latest projects, events, and ways to get involved.
+              Together, we can make a difference in mental health awareness and environmental sustainability.
+            </motion.p>
           </motion.div>
-
-          <div className="max-w-5xl mx-auto space-y-20">
-            {/* First Issue: Mental Health Visibility */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-            >
-              <div className="relative overflow-hidden rounded-xl shadow-xl h-[400px]">
-                <Image
-                  src="/placeholder.svg?height=720&width=720"
-                  alt="Robin Williams smiling"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">He seemed happy... right?</h3>
-                  <p className="text-white/80 text-sm">Click to reveal the truth</p>
-                </div>
-                <motion.div 
-                  className="absolute inset-0 bg-black/80 flex items-center justify-center p-6"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="text-white max-w-md">
-                    <p className="mb-4">
-                      Robin Williams brought joy to millions, yet behind his smile was a battle with depression that many never saw.
-                    </p>
-                    <p className="font-medium">
-                      Mental health struggles often remain invisible, even in those who seem the happiest.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">The Invisible Struggle</h3>
-                <p className="text-muted-foreground">
-                  What we see on the surface rarely tells the whole story. Like Robin Williams, many people 
-                  hide their mental health struggles behind smiles and laughter.
-                </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Over 50% of those suffering from depression never seek professional help</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Stigma prevents many from acknowledging their mental health needs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Simple tools can make a significant difference in daily coping</span>
-                  </li>
-                </ul>
-                <div className="pt-4">
-                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                    <Link href="/mental-health">Learn More About Mental Health</Link>
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Second Issue: Environmental Impact */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
-            >
-              <div className="order-2 md:order-1 space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">What We Choose Not to See</h3>
-                <p className="text-muted-foreground">
-                  Our waste doesn't disappear—it accumulates in places we choose to ignore, with devastating consequences 
-                  for both wildlife and vulnerable communities.
-                </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Over 1 million mammals lose their homes annually due to landfill expansion</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>By 2050, there could be more plastic than fish in our oceans</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Recycling one ton of plastic saves the equivalent of 1,000–2,000 gallons of gasoline</span>
-                  </li>
-                </ul>
-                <div className="pt-4">
-                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                    <Link href="/environment">Learn About Environmental Impact</Link>
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="order-1 md:order-2">
-                <div className="max-w-md mx-auto">
-                  <div className="mb-6 relative">
-                    <ImageComparisonSlider
-                      beforeImage="/placeholder.svg?height=600&width=800"
-                      afterImage="/placeholder.svg?height=600&width=800"
-                      beforeAlt="What appears to be a mountain"
-                      afterAlt="Actually a landfill"
-                    />
-                    <p className="mt-2 text-sm text-center text-muted-foreground italic">
-                      Drag to see the truth: What looks like a mountain is actually a landfill
-                    </p>
-                  </div>
-                  <div className="bg-card border rounded-lg p-4 flex items-center space-x-4">
-                    <div className="relative h-20 w-20 flex-shrink-0">
-                      <Image
-                        src="/placeholder.svg?height=80&width=80"
-                        alt="Rocky the Raccoon"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">Meet Rocky</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Just one of millions of animals whose habitats are threatened by our waste problem every year.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
     </main>

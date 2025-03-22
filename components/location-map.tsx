@@ -55,12 +55,6 @@ export default function LocationMap({ locations }: LocationMapProps) {
           </Button>
         </form>
 
-        <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 mb-6 min-h-[300px] flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="h-10 w-10 text-[#4CAF50] mx-auto mb-2" />
-            <p className="text-gray-600 dark:text-gray-300">Map would be embedded here</p>
-          </div>
-        </div>
 
         <div className="space-y-4">
           <h4 className="font-medium text-[#1F2937] dark:text-white">

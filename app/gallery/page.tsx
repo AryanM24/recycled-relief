@@ -81,7 +81,7 @@ export default function GalleryPage() {
   return (
     <main className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 bg-[#F9FAFB]">
+      <section className="py-16 ">
         <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -98,7 +98,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-8 pb-16 bg-white">
+      <section className="py-8 pb-16">
         <Container>
           <MasonryGrid columns={{ default: 1, sm: 2, md: 3, lg: 3 }} gap={24}>
             {galleryImages.map((image, index) => (

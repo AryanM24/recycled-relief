@@ -21,8 +21,7 @@ export default function Navbar() {
     { name: "About", href: "/about" },
     { name: "Initiatives", href: "/initiatives" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Get Involved", href: "/get-involved" },
-    { name: "Contact", href: "/contact" },
+    { name: "Get Involved", href: "/get-involved" }
   ]
 
   // Handle scroll effect
